@@ -1,70 +1,14 @@
-# Getting Started with Create React App
+From a frontend perspective, the project is a web application that uses HTML, CSS, and JavaScript to create a user interface for the email management system. The web application communicates with a backend server that handles the email functionality and the database.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The web application has the following features:
 
-## Available Scripts
+-   A login page that allows the user to enter their email address and password to access the system. The web application validates the user credentials and redirects them to the dashboard page if they are valid, or shows an error message if they are invalid.
+-   A dashboard page that displays the user’s name, email address, role, and a menu of options. The web application uses conditional rendering to show different options depending on the user’s role. For example, if the user is an admin, they can see an option to manage the system settings, while if the user is a normal user, they can only see options related to their email account.
+-   An inbox page that shows the list of emails received by the user, with the sender’s name, subject, date, and status (read or unread). The web application uses pagination to show a limited number of emails per page, and allows the user to navigate between pages. The web application also allows the user to sort and filter the emails by different criteria, such as date, sender, subject, or status. The web application uses AJAX to fetch the emails from the server without reloading the page.
+-   A compose page that allows the user to create a new email and send it to one or more recipients. The web application uses a form to collect the recipient’s email address, subject, and message from the user. The web application validates the form inputs and shows an error message if they are invalid. The web application also allows the user to attach files to their email. The web application uses AJAX to send the email to the server without reloading the page.
+-   A sent page that shows the list of emails sent by the user, with the recipient’s name, subject, date, and status (delivered or undelivered). The web application uses pagination, sorting, filtering, and AJAX similar to the inbox page.
+-   A settings page that allows the user to change their personal settings, such as account password. The web application uses a form to collect the new password from the user. The web application validates the password and shows an error message if it is invalid. The web application uses AJAX to update the password on the server without reloading the page.
+-   A notification system that sends an email to the user on their birthday. The web application uses a service worker to register a background task that runs periodically and checks if there is any user whose birthday is today. If there is, it sends an email to them using the server API. The web application also shows a notification on other users’ dashboard if it is someone’s birthday today.
 
-In the project directory, you can run:
+The web application uses responsive design to adapt to different screen sizes and devices. The web application also uses local storage to store some data locally on the browser for faster loading and offline access. The web application follows accessibility guidelines to ensure that it is usable by people with disabilities.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
