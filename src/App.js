@@ -2,6 +2,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import SignupCard from "./Components/SignupCard";
 import LoginCard from "./Components/LoginCard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from "./Pages/Dashboard";
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/signup" element={<SignupCard />} />
-          <Route path="/login" element={<LoginCard />} />
+          <Route path="/" element={<LoginCard />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
     </ChakraProvider>

@@ -61,6 +61,17 @@ export default function SignupCard() {
     e.preventDefault();
     setIsLoading(true);
 
+    // Password validation rules
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+    if (!passwordRegex.test(formData.user_password)) {
+      setError(
+        "Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, and one digit."
+      );
+      setIsLoading(false);
+      return; // Stop the submission if the password doesn't meet the criteria
+    }
+
     try {
       const response = await axios.post(
         "http://localhost:8080/user/signup",
@@ -69,11 +80,8 @@ export default function SignupCard() {
 
       if (response.status === 200) {
         setShowSuccessNotification(true);
-
-        setTimeout(() => {
-          setIsLoading(false);
-          window.location.href = "/login";
-        }, 2000);
+        setIsLoading(false);
+        window.location.href = "/";
       }
     } catch (error) {
       if (error.response && error.response.status === 400) {
@@ -94,6 +102,9 @@ export default function SignupCard() {
       align={"center"}
       justify={"center"}
       bg={useColorModeValue("gray.50", "gray.800")}
+      bgImage={
+        "https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80"
+      }
     >
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Box
@@ -101,6 +112,7 @@ export default function SignupCard() {
           bg={useColorModeValue("white", "gray.700")}
           boxShadow={"lg"}
           p={8}
+          opacity={0.96}
         >
           <Stack align={"center"} paddingBottom={8}>
             <Heading fontSize={"4xl"} textAlign={"center"}>
@@ -113,6 +125,7 @@ export default function SignupCard() {
               <FormControl id="recip_name" isRequired>
                 <FormLabel>Full Name</FormLabel>
                 <Input
+                  autoFocus
                   type="text"
                   value={formData.recip_name}
                   onChange={handleInputChange}
@@ -121,7 +134,7 @@ export default function SignupCard() {
               <HStack>
                 <Box>
                   <FormControl id="nick_name">
-                    <FormLabel>Short Name</FormLabel>
+                    <FormLabel>Nick Name</FormLabel>
                     <Input
                       type="text"
                       value={formData.nick_name}
@@ -230,7 +243,7 @@ export default function SignupCard() {
           <Stack pt={6}>
             <Text align={"center"}>
               Already a user?{" "}
-              <Link color={"blue.400"} href="/login">
+              <Link color={"blue.400"} href="/">
                 Login
               </Link>
             </Text>
